@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css.css" />
+  </head>
+  <body>
+    <header class="heder">
+      <nav class="site-nav">
+        <ul>
+          <li>NAVIGATION ></li>
+          <li>HOME</li>
+          <li>FILTERS</li>
+          <li>CONTACT US</li>
+          <li>TO CART</li>
+        </ul>
+      </nav>
+      <div class="cart-button">
+        <button class="cart-btn">
+          <img src="../images/shopping-cart-svgrepo-com.svg" alt="cart" />
+          <span class="items-in-cart">0</span>
+        </button>
+      </div>
+      <div class="cart display-none">
+        <!--  <h2>Cart</h2>  -->
+       <p class="cart-empty-title">Your cart is empty</p> 
+        <button class="clouse-cart">X</button>
+        <div class="cart-list-wrapper">
+          <section class="cart-list-titles">
+            <h4 class="cart-list-item-title">Item</h4>
+            <h4 class="cart-list-price-title">Price</h4>
+            <h4 class="cart-list-quantity-title">Quantity</h4>
+          </section>
+          <ul class="cart-list"></ul>
+          <h3 class="total-amount">Total <span>0</span></h3>
+        </div>
+      </div>
+    </header>
+    <h1 class="main-title">Online store</h1>
+    <ul class="products-container"></ul>
+    <script src="new.js"></script>
+  </body>
+</html>
