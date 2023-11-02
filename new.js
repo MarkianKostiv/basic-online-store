@@ -97,7 +97,7 @@ const openCartBtn = (event) => {
   const cartList = document.querySelector(".cart");
   const cartListWrapper = document.querySelector(".cart-list-wrapper");
   cartListWrapper.style.display = "block";
-  cartList.classList.add("display-block");
+  // cartList.classList.add("display-block");
   cartList.classList.remove("display-none");
 
   const cartListItems = document.getElementsByClassName("cart-list-item");
@@ -108,9 +108,8 @@ const openCartBtn = (event) => {
     emptyCartTitle.style.display = "block";
     return;
   }
-  // const openCart = document.querySelector(".cart-button");
-  // openCart.style.display = "none";
 }
+
 const closeCart = (event) => {
   const cartListWrapper = document.querySelector(".cart");
   cartListWrapper.classList.add("display-none");
@@ -122,15 +121,7 @@ const quantityItemInCart = () => {
   const numberCartItems = document.querySelector(".items-in-cart");
   const arrayCart = Array.from(cart.children);
   numberCartItems.textContent = arrayCart.length;
-  // console.log(arrayCart);
 }
-// document.addEventListener("DOMContentLoaded", function() {
-//   quantityItemInCart();
-// });
-
-
-quantityItemInCart();
-
 
 const renderCartItem = (product, inputNumber) => {
   const cart = document.querySelector(".cart-list");
@@ -201,6 +192,7 @@ const renderInitialCart = () => {
   }
   currentCartProducts.forEach((item) => renderCartItem(item, item.amount));
   getCartTotal();
+  quantityItemInCart();
 };
 
 const saveProduct = (product) => {

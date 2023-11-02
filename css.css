@@ -34,8 +34,14 @@ ul {
   top: 35%;
   z-index: 1;
   background: white;
-  -webkit-box-shadow: 4px 2px 11px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 2px 11px 1px rgba(0, 0, 0, 0.75);
   width: 50%;
+}
+.cart-button {
+  width: 34%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 
 .cart-btn:hover {
