@@ -110,6 +110,25 @@ const openCartBtn = (event) => {
   }
 }
 
+const initializeApp = () => {
+  
+  openCartBtn(); 
+};
+
+
+window.addEventListener('click', initializeApp);
+
+// const initializeCloseCart = () => {
+  
+//   closeCart(); 
+// };
+
+
+// window.addEventListener('click', initializeCloseCart);
+
+
+
+
 const closeCart = (event) => {
   const cartListWrapper = document.querySelector(".cart");
   cartListWrapper.classList.add("display-none");
