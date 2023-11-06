@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="./css.css" />
   </head>
   <body>
+    <!-- <h1 class="main-title">Online store</h1> -->
     <header class="heder">
       <nav class="site-nav">
         <ul>
-          <li>NAVIGATION ></li>
-          <li>HOME</li>
-          <li>FILTERS</li>
-          <li>CONTACT US</li>
-          <li>TO CART</li>
+          <h3 class="nav-title">NAVIGATION <span class="nav-animated-element">></span></h3>
+          <li class="nav-item display-none">HOME</li>
+          <li class="nav-item display-none">FILTERS</li>
+          <li class="nav-item display-none">CONTACT US</li>
+          <li class="nav-item display-none">TO CART</li>
+          <li class="nav-item display-none close-nav">X</li>
         </ul>
       </nav>
       <div class="cart-button">
@@ -34,12 +36,18 @@
             <h4 class="cart-list-quantity-title">Quantity</h4>
           </section>
           <ul class="cart-list"></ul>
+          <div class="info-cart">
+            <button class="remove-all-products">REMOVE ALL</button>
           <h3 class="total-amount">Total <span>0</span></h3>
+        </div>
         </div>
       </div>
     </header>
-    <h1 class="main-title">Online store</h1>
     <ul class="products-container"></ul>
+    <footer class="site-footer">
+      <section><h3>About US</h3> <p></p></section>
+      <section><h3>social links</h3></section>
+    </footer>
     <script src="new.js"></script>
   </body>
 </html>

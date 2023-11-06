@@ -9,6 +9,13 @@ const getProducts = async () => {
 const renderProducts = async () => {
   const products = await getProducts();
   const container = document.querySelector(".products-container");
+  // cart Buttons
+  const openCart = document.querySelector(".cart-button");
+const closeBtn = document.querySelector(".clouse-cart");
+const deleteAllProducts = document.querySelector(".remove-all-products")
+// nav buttons
+const openNavMenu = document.querySelector(".nav-title");
+const closeNavMenu = document.querySelector(".close-nav");
   for (const item of products) {
     // creating elements
     const productWrapper = document.createElement("li");
@@ -37,6 +44,24 @@ const renderProducts = async () => {
     );
     container.append(productWrapper);
   }
+
+  // cart buttons event listeners
+  openCart.onclick = (event) => {
+    openCartBtn(event);
+  }
+  closeBtn.onclick = (event) => {
+    closeCart(event);
+  }
+  deleteAllProducts.onclick = (event) => {
+    removeAllProductsFromCart(event);
+  }
+  // nav menu event listeners
+  openNavMenu.onclick = (event) => {
+    openingNav(event);
+  }
+  closeNavMenu.onclick = (event) => {
+    closingNav(event);
+  } 
   renderInitialCart();
 };
 
@@ -76,6 +101,26 @@ const removeProductFromCart = (event, product) => {
   quantityItemInCart();
 };
 
+const removeAllProductsFromCart = (event) => {
+const cartList = document.querySelector(".cart-list");
+
+while (cartList.firstChild) {
+  cartList.removeChild(cartList.firstChild);
+}
+
+if (!cartList.length) {
+  const cartListWrapper = document.querySelector(".cart-list-wrapper ");
+  const emptyCartTitle = document.querySelector(".cart-empty-title");
+  cartListWrapper.style.display = "none";
+  emptyCartTitle.style.display = "block";
+}
+
+localStorage.clear();
+
+getCartTotal();
+quantityItemInCart();
+}
+
 const addToCart = (product) => {
   const cartItems = document.getElementsByClassName("cart-list-item");
   for (const item of cartItems) {
@@ -93,11 +138,30 @@ const addToCart = (product) => {
   quantityItemInCart();
 };
 
+const openingNav = (event) => {
+const navItems = document.querySelectorAll(".nav-item");
+const navAim = document.querySelector(".nav-animated-element");
+navItems.forEach((item) => {
+  item.classList.remove("display-none");
+});
+navAim.classList.add("animation");
+}
+
+const closingNav = (event) => {
+  const navItems = document.querySelectorAll(".nav-item");
+  navItems.forEach((item) => {
+    item.classList.add("display-none");
+  })
+  const navAim = document.querySelector(".nav-animated-element");
+  navAim.classList.remove("animation");
+}
+
 const openCartBtn = (event) => {
   const cartList = document.querySelector(".cart");
   const cartListWrapper = document.querySelector(".cart-list-wrapper");
   cartListWrapper.style.display = "block";
-  // cartList.classList.add("display-block");
+  cartList.style.display = "block";
+  cartList.classList.add("display-block");
   cartList.classList.remove("display-none");
 
   const cartListItems = document.getElementsByClassName("cart-list-item");
@@ -110,27 +174,9 @@ const openCartBtn = (event) => {
   }
 }
 
-const initializeApp = () => {
-  
-  openCartBtn(); 
-};
-
-
-window.addEventListener('click', initializeApp);
-
-// const initializeCloseCart = () => {
-  
-//   closeCart(); 
-// };
-
-
-// window.addEventListener('click', initializeCloseCart);
-
-
-
-
 const closeCart = (event) => {
   const cartListWrapper = document.querySelector(".cart");
+  cartListWrapper.style.display = "none";
   cartListWrapper.classList.add("display-none");
   cartListWrapper.classList.remove("display-block");
 }
@@ -139,14 +185,14 @@ const quantityItemInCart = () => {
   const cart = document.querySelector(".cart-list");
   const numberCartItems = document.querySelector(".items-in-cart");
   const arrayCart = Array.from(cart.children);
+
   numberCartItems.textContent = arrayCart.length;
 }
 
 const renderCartItem = (product, inputNumber) => {
   const cart = document.querySelector(".cart-list");
-  const openCart = document.querySelector(".cart-button");
   const cartEmpty = document.querySelector(".cart-empty-title");
-  const closeBtn = document.querySelector(".clouse-cart");
+  
   // creating elements
   const cartListItem = document.createElement("li");
   const cartListImgSection = document.createElement("section");
@@ -162,12 +208,7 @@ const renderCartItem = (product, inputNumber) => {
   removeBtn.addEventListener("click", (event) =>
     removeProductFromCart(event, product)
   );
-  openCart.onclick = (event) => {
-    openCartBtn(event);
-  }
-  closeBtn.onclick = (event) => {
-    closeCart(event);
-  }
+  
   // setting values
   cartListItem.classList.add("cart-list-item");
   cartListImgSection.classList.add(
