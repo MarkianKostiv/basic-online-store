@@ -273,8 +273,9 @@ const saveProduct = (product) => {
   setCurrentCartItems(currentCartProducts);
 };
 
-const getCurrentCartItems = () =>
+const getCurrentCartItems = () => 
   JSON.parse(localStorage.getItem(CART_PRODUCTS_LABEL)) || [];
+
 
 const setCurrentCartItems = (products) => {
   localStorage.setItem(CART_PRODUCTS_LABEL, JSON.stringify(products));
