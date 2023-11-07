@@ -123,6 +123,8 @@ quantityItemInCart();
 
 const addToCart = (product) => {
   const cartItems = document.getElementsByClassName("cart-list-item");
+  const cartListWrapper = document.querySelector(".cart-list-wrapper");
+  cartListWrapper.style.display = "block";
   for (const item of cartItems) {
     if (product.id === +item.getAttribute("id")) {
       const quantityInput = item.querySelector(
