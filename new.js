@@ -141,19 +141,15 @@ const addToCart = (product) => {
 };
 
 const openingNav = (event) => {
-const navItems = document.querySelectorAll(".nav-item");
+const siteNav = document.querySelector(".site-nav");
 const navAim = document.querySelector(".nav-animated-element");
-navItems.forEach((item) => {
-  item.classList.remove("display-none");
-});
+  siteNav.classList.remove("display-none");
 navAim.classList.add("animation");
 }
 
 const closingNav = (event) => {
-  const navItems = document.querySelectorAll(".nav-item");
-  navItems.forEach((item) => {
-    item.classList.add("display-none");
-  })
+  const siteNav = document.querySelector(".site-nav");
+  siteNav.classList.add("display-none");
   const navAim = document.querySelector(".nav-animated-element");
   navAim.classList.remove("animation");
 }
