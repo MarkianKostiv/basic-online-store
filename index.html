@@ -10,18 +10,40 @@
     <!-- <h1 class="main-title">Online store</h1> -->
     <header class="heder">
       <a href="./index.html">
-      <img class="logo" src="./images/logo Bos.svg" alt="logo">
-    </a>
-    <h3 class="nav-title">
-      NAVIGATION <span class="nav-animated-element">></span>
-    </h3>
+        <img class="logo" src="./images/logo Bos.svg" alt="logo" />
+      </a>
+      <h3 class="nav-title background-disable">
+        NAVIGATION <span class="nav-animated-element"></span>
+      </h3>
       <nav class="site-nav display-none">
         <ul>
-          <li class="nav-item ">HOME</li>
-          <li class="nav-item ">FILTERS</li>
-          <li class="nav-item ">CONTACT US</li>
-          <li class="nav-item ">TO CART</li>
-          <li class="nav-item  close-nav">X</li>
+          <li class="nav-item home">
+            <a href="./index.html"><button>HOME</button></a>
+          </li>
+          <li class="nav-item filters"><button>FILTERS</button></li>
+          <li>
+            <ul class="filters-container display-none">
+              <li><button>Accessories</button></li>
+              <li>Clothing</li>
+              <li>Electronics</li>
+              <li>Jewelry</li>
+            </ul>
+          </li>
+          <li class="nav-item contacts"><button>CONTACT US</button></li>
+          <li>
+            <div class="contacts-container display-none">
+              <ul>
+                <li>tel</li>
+                <li>email</li>
+                <li>instagram</li>
+                <li>twitter</li>
+                <li>facebook</li>
+                <li>linkedin</li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item to-cart"><button>TO CART</button></li>
+          <li class="nav-item close-nav">X</li>
         </ul>
       </nav>
       <div class="cart-button">
@@ -65,10 +87,26 @@
       <section class="footer-social-links">
         <h3>SOCIAL LINKS</h3>
         <ul class="social-links-container">
-          <li><a href="https://www.facebook.com/"><img src="./images/icons8-facebook.svg" alt="facebook" /></a></li>
-          <li><a href="https://www.instagram.com/"><img src="./images/icons8-instagram.svg" alt="instagram" /></a></li>
-          <li><a href="https://www.linkedin.com/"><img src="./images/icons8-linkedin.svg" alt="linkedin" /></a></li>
-          <li><a href="https://twitter.com/"><img src="./images/icons8-twitterx.svg" alt="twitter-x" /></a></li>
+          <li>
+            <a href="https://www.facebook.com/"
+              ><img src="./images/icons8-facebook.svg" alt="facebook"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/"
+              ><img src="./images/icons8-instagram.svg" alt="instagram"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/"
+              ><img src="./images/icons8-linkedin.svg" alt="linkedin"
+            /></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/"
+              ><img src="./images/icons8-twitterx.svg" alt="twitter-x"
+            /></a>
+          </li>
         </ul>
       </section>
       <section>

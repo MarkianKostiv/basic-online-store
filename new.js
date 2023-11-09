@@ -16,6 +16,9 @@ const deleteAllProducts = document.querySelector(".remove-all-products")
 // nav buttons
 const openNavMenu = document.querySelector(".nav-title");
 const closeNavMenu = document.querySelector(".close-nav");
+const toCart = document.querySelector(".to-cart");
+const filters = document.querySelector(".filters");
+const contacts = document.querySelector(".contacts");
   for (const item of products) {
     // creating elements
     const productWrapper = document.createElement("li");
@@ -33,6 +36,9 @@ const closeNavMenu = document.querySelector(".close-nav");
     productDescription.innerText = item.description;
     productPrice.innerText = `${item.price}$`;
     productBuyBtn.innerText = "Add to cart";
+    productDescription.onclick = (event) => {
+      showingFullDescription(event);
+    } 
     productBuyBtn.addEventListener("click", () => addToCart(item));
     // appending elements inside the wrappers
     productPriceSection.append(productPrice, productBuyBtn);
@@ -61,6 +67,16 @@ const closeNavMenu = document.querySelector(".close-nav");
   }
   closeNavMenu.onclick = (event) => {
     closingNav(event);
+  }
+  contacts.onclick = (event) => {
+    openingAndClosingContactsMenu(event); 
+  }
+
+  toCart.onclick = (event) => {
+    openCartBtn(event);
+  }
+  filters.onclick = (event) => {
+    openAndCloseFilers(event);
   } 
   renderInitialCart();
 };
@@ -143,15 +159,42 @@ const addToCart = (product) => {
 const openingNav = (event) => {
 const siteNav = document.querySelector(".site-nav");
 const navAim = document.querySelector(".nav-animated-element");
+const navTitle = document.querySelector(".nav-title");
   siteNav.classList.remove("display-none");
+  navTitle.classList.remove("background-disable");
+  navTitle.classList.add("background-active");
 navAim.classList.add("animation");
 }
 
 const closingNav = (event) => {
   const siteNav = document.querySelector(".site-nav");
+  const navTitle = document.querySelector(".nav-title");
   siteNav.classList.add("display-none");
+  navTitle.classList.remove("background-active");
+  navTitle.classList.add("background-disable");
   const navAim = document.querySelector(".nav-animated-element");
   navAim.classList.remove("animation");
+}
+
+const openAndCloseFilers = (event) => {
+  const filtersContainer = document.querySelector(".filters-container");
+  if (filtersContainer.classList.contains("display-none")) {
+    filtersContainer.classList.remove("display-none");
+    filtersContainer.classList.add("display-block"); 
+  } else if (filtersContainer.classList.contains("display-block")) {
+    filtersContainer.classList.remove("display-block"); 
+    filtersContainer.classList.add("display-none");
+  }
+}
+const openingAndClosingContactsMenu = (event) => {
+  const contactsContainer = document.querySelector(".contacts-container");
+  if (contactsContainer.classList.contains("display-none")) {
+    contactsContainer.classList.remove("display-none");
+    contactsContainer.classList.add("display-block"); 
+  } else if (contactsContainer.classList.contains("display-block")) {
+    contactsContainer.classList.remove("display-block"); 
+    contactsContainer.classList.add("display-none");
+  }
 }
 
 const openCartBtn = (event) => {
@@ -177,6 +220,17 @@ const closeCart = (event) => {
   cartListWrapper.style.display = "none";
   cartListWrapper.classList.add("display-none");
   cartListWrapper.classList.remove("display-block");
+}
+
+const showingFullDescription = (event) => {
+  const itemDescription = event.currentTarget.parentElement.querySelector(".product-item > p");
+  if (!itemDescription.classList.contains("web-kit-line-clamp-none")) {
+    itemDescription.classList.add("web-kit-line-clamp-none"); 
+    itemDescription.style.WebkitLineClamp = "inherit";
+  } else if (itemDescription.classList.contains("web-kit-line-clamp-none")) {
+    itemDescription.classList.remove("web-kit-line-clamp-none");
+    itemDescription.style.WebkitLineClamp = "5"; 
+  }
 }
 
 const quantityItemInCart = () => {
